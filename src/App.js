@@ -11,6 +11,7 @@ import TradeRate from './pages/TradeRate';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'boostrap'
 import './App.css'
+import SingleItem from './pages/SingleItem';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/items" component={Items} />
+        <Route exact path="/items/:id" component={SingleItem} />
         <Route exact path="/trade-rates" component={TradeRate} />
 
         <Route component={Error} />

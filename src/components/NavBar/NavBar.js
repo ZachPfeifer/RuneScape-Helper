@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Icon from '../../images/icon.png'
+// import Icon from '../../images/icon.png'
 
 
 export default class NavBar extends Component {
   render() {
     return (
       <div className="main-header">
-        {/* <i><img src={Icon} alt="OSRS" /></i> */}
+        <i>
+          {/* <img src={Icon} alt="OSRS" /> */}
+        </i>
         <span className="brand">Rune Helper</span>
         <ul className="main-nav">
           <li className="nav-link">
