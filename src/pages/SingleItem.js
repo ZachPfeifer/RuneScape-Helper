@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import Banner from '../components/Utilities/Banner'
+import Loading from '../components/Utilities/Loading'
 
 
 export default class SingleItem extends Component {
   state = {
+    loading: true,
     activeItem: {}
   }
 
@@ -12,7 +15,8 @@ export default class SingleItem extends Component {
     // GET BACKGROUND IMAGE
     Axios.get(`//bcw-sandbox.herokuapp.com/api/runelite/${id}`)
       .then(res => this.setState({
-        activeItem: res.data.item
+        activeItem: res.data.item,
+        loading: false
       }))
 
   }
@@ -21,13 +25,25 @@ export default class SingleItem extends Component {
 
   render() {
     console.log(this.state.activeItem);
+    const test = this.state.activeItem.current
+    console.log(test)
+    // const item = this.state.activeItem
+    const data = this.state.activeItem.current
+    const { name, icon_large, description, price } = this.state.activeItem
 
-    return (
 
-      <div className="wrapper">
-        <img src={this.state.activeItem.icon} alt="ItemPhoto" />
-        < p > {this.state.activeItem.name}</p>
-      </div>
-    )
+    if (this.state.loading) {
+      return <Loading />
+    } else {
+      return (
+        <div className="wrapper">
+          <Banner
+            name={name}
+            price={data.price}
+            img={icon_large}
+            description={description} />
+        </div>
+      )
+    }
   }
 }
