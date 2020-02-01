@@ -14,28 +14,28 @@ export default class NavBar extends Component {
         <ul className="main-nav">
           <li className="nav-link">
             <Link to="/">
-              <a>
+              
                 Home
-              </a>
+              
             </Link>
           </li>
           <li className="nav-link">
             <Link to="/items">
-              <a>
+              
                 Items
-              </a>
+              
             </Link>
           </li>
           <li className="nav-link">
             <Link to="/trade-rates">
-              <a>
+              
                 Trade Rates
-              </a>
+              
             </Link>
           </li>
           <li className="nav-link">
             <Link to="/error">
-              <a>Error</a>
+              Error
             </Link>
           </li>
         </ul>

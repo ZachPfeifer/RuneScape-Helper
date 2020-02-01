@@ -36,22 +36,24 @@ class Items extends Component {
       return <Loading />
     } else {
       return (
-        <div className="wrapper">
-
-
-          {items.map(item => {
-            if (item.tradeable === "true") {
-              return (
-                <div>
-                  <Link
-                    to={`/items/${item.id}`}>
-                    <h3 >{item.name}</h3>
-                  </Link>
-                </div>
-              )
+        <div className="wrapper container-fluid">
+          <div className="row">
+            {items.map(item => {
+              if (item.tradeable === "true") {
+                return (
+                  <div>
+                    <Link
+                      to={`/items/${item.id}`}>
+                      <div className="card">
+                        <h3 className="card-body">{item.name}</h3>
+                      </div>
+                    </Link>
+                  </div>
+                )
+              }
+            })
             }
-          })
-          }
+          </div>
         </div >
       );
     }
