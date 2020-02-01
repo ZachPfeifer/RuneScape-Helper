@@ -2,7 +2,7 @@ import React from 'react'
 
 const ErrorPage = () => {
   return (
-    <div>
+    <div className="wrapper">
       <h1>ERROR YOUR BAD</h1>
     </div>
   )

@@ -6,23 +6,71 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
-  color: #f2f2f2;
+  /* color: var(--mainBlack); */
+  background: var(--mainWhite);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.4;
 }
+
+/*SECTION  ColorScheme */
+
+:root {
+  --primaryColor: #af9a7d;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #333333;
+  --mainGrey: #ececec;
+  --darkGrey: #cfcfcf;
+  --mainGold: #FFD700;
+  --darkGold: #bf9456;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 3px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* SECTION Global Usage */
+
+.wrapper {
+  margin-top: 6rem;
+}
+
+/* SECTION NAVBAR */
 
 .main-header {
   display: flex;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
-  background-color: #333333;
+  background-color: var(--mainBlack);
+  color: var(--mainWhite);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
 
+/* .main-header i img {
+  background-image: url(./);
+  width: 10rem;
+  height: 10rem;
+  margin: 0rem 0 0rem 10rem;
+} */
+
 .main-header .brand {
   font-size: 1.4rem;
   font-weight: bold;
-  padding: 2rem;
+  padding: 2rem 0 2rem 0rem;
+  margin-top: 2rem;
+}
+
+.main-nav {
+  position: fixed;
+  top: 3%;
+  left: 0;
+  width: 100%;
+  padding: .5rem 0rem 1rem 4rem;
+  /* background: var(--offWhite); */
+  z-index: 1;
 }
 
 .main-header .main-nav {
@@ -44,3 +92,7 @@ body {
   font-size: 1.3rem;
   color: #f2f2f2;
 }
+
+/* SECTION HOME */
+
+/* SECTION Error */
