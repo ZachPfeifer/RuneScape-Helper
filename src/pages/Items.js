@@ -18,7 +18,7 @@ class Items extends Component {
   componentDidMount() {
     // const { id } = this.props.match.params
     // GET ALL ITEMS
-    Axios.get('//bcw-sandbox.herokuapp.com/api/runelite')
+    Axios.get('//osrshelper.herokuapp.com/api/runelite')
       .then(res => this.setState({
         items: res.data,
         loading: false

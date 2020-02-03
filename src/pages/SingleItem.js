@@ -13,7 +13,7 @@ export default class SingleItem extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
     // GET BACKGROUND IMAGE
-    Axios.get(`//bcw-sandbox.herokuapp.com/api/runelite/${id}`)
+    Axios.get(`//osrshelper.herokuapp.com/api/runelite/${id}`)
       .then(res => this.setState({
         activeItem: res.data.item,
         loading: false
