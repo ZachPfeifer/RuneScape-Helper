@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Error from "./pages/Error";
 import Items from './pages/Items';
 import TradeRate from './pages/TradeRate';
+import HiScores from './pages/HiScores';
+
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'boostrap'
@@ -23,6 +25,7 @@ function App() {
         <Route exact path="/items" component={Items} />
         <Route exact path="/items/:id" component={SingleItem} />
         <Route exact path="/trade-rates" component={TradeRate} />
+        <Route exact path="/hiscores" component={HiScores} />
 
         <Route component={Error} />
       </Switch>

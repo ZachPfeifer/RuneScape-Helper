@@ -34,6 +34,13 @@ export default class NavBar extends Component {
             </Link>
           </li>
           <li className="nav-link">
+            <Link to="/hiscores">
+              
+                HiScores
+              
+            </Link>
+          </li>
+          <li className="nav-link">
             <Link to="/error">
               Error
             </Link>
