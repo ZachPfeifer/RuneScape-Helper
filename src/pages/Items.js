@@ -6,7 +6,7 @@ import Loading from '../components/Utilities/Loading'
 
 const Items = () => {
 
-  const { items, activeItem, loading } = useContext(ItemContext)
+  const { items, loading } = useContext(ItemContext)
 
   if (loading) {
     return <Loading />

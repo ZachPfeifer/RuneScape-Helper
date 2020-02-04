@@ -4,12 +4,12 @@ import Axios from 'axios'
 
 class HiScores extends Component {
 
-  constructor(props) {
-    super(props)
-    // this.handleChange = this.handleChange.bind(this);
-    // this.lookup = this.lookup.bind(this);
+  // constructor(props) {
+  //   super(props)
+  //    this.handleChange = this.handleChange.bind(this);
+  //    this.lookup = this.lookup.bind(this);
 
-  }
+  // }
 
   state = {
     name: '',

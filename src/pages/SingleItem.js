@@ -58,12 +58,9 @@ export default class SingleItem extends Component {
 
 
   render() {
-    console.log(this.state.activeItem);
-    const test = this.state.activeItem.current
-    console.log(test)
     // const item = this.state.activeItem
     const data = this.state.activeItem.current
-    const { name, icon_large, description, price } = this.state.activeItem
+    const { name, icon_large, description } = this.state.activeItem
 
 
     if (this.state.loading) {
