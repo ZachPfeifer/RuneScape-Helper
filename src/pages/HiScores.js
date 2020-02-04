@@ -19,8 +19,9 @@ class HiScores extends Component {
   lookup(event) {
     Axios.put('//osrshelper.herokuapp.com/api/runelite/hiscore/', { name: this.state.name })
       .then(res => this.setState({
-        stats: res.data.split(" "),
+        stats: res.data.split("\n"),
       }))
+    console.log(this.state.stats)
     event.preventDefault();
   }
   handleChange(event) {
@@ -33,7 +34,7 @@ class HiScores extends Component {
 
 
   render() {
-    const stats = this.state.stats
+    const stats = this.state.stats.map(stat => <p>{stat}  |</p>)
 
     return (
       <div className="wrapper container-fluid">
@@ -47,11 +48,7 @@ class HiScores extends Component {
               <input type="submit" value="Submit" />
             </form>
           </div>
-          {stats.forEach(stat => {
-            return <div> {stat} </div>
-          })
-
-          }
+          {stats}
 
         </div>
       </div >
