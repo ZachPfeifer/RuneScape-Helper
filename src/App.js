@@ -14,6 +14,7 @@ import HiScores from './pages/HiScores';
 // import 'boostrap'
 import './App.css'
 import SingleItem from './pages/SingleItem';
+import ItemContextProvider from './context/ItemContext';
 
 
 function App() {
@@ -21,12 +22,13 @@ function App() {
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/items" component={Items} />
-        <Route exact path="/items/:id" component={SingleItem} />
-        <Route exact path="/trade-rates" component={TradeRate} />
-        <Route exact path="/hiscores" component={HiScores} />
-
+        <ItemContextProvider>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/items" component={Items} />
+          <Route exact path="/items/:id" component={SingleItem} />
+          <Route exact path="/trade-rates" component={TradeRate} />
+          <Route exact path="/hiscores" component={HiScores} />
+        </ItemContextProvider>
         <Route component={Error} />
       </Switch>
     </div>

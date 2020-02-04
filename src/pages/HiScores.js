@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 class HiScores extends Component {
 
-  constructor() {
-    super()
-    this.handleChange = this.handleChange.bind(this);
-    this.lookup = this.lookup.bind(this);
+  constructor(props) {
+    super(props)
+    // this.handleChange = this.handleChange.bind(this);
+    // this.lookup = this.lookup.bind(this);
 
   }
 
@@ -16,16 +16,16 @@ class HiScores extends Component {
     stats: [],
   }
 
-  lookup(event) {
+  lookup = (e) => {
     Axios.put('//osrshelper.herokuapp.com/api/runelite/hiscore/', { name: this.state.name })
       .then(res => this.setState({
         stats: res.data.split("\n"),
       }))
     console.log(this.state.stats)
-    event.preventDefault();
+    e.preventDefault();
   }
-  handleChange(event) {
-    this.setState({ name: event.target.value });
+  handleChange = (e) => {
+    this.setState({ name: e.target.value });
   }
 
   //SECTION API 

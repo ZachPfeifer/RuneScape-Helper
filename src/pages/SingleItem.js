@@ -1,3 +1,37 @@
+// import React, { useContext } from 'react'
+// import { ItemContext } from "../context/ItemContext";
+// import Banner from '../components/Utilities/Banner'
+// import Loading from '../components/Utilities/Loading'
+
+// const SingleItem = () => {
+
+//   const { activeItem, loading } = useContext(ItemContext)
+//   console.log(activeItem)
+//   const { name, icon_large, description } = activeItem
+//   // const data = activeItem.current
+
+
+//   if (loading) {
+//     return <Loading />
+//   } else {
+//     return (
+//       <div className="wrapper">
+//         <Banner
+//           name={name}
+//           // price={data.price}
+//           img={icon_large}
+//           description={description} />
+//       </div>
+//     )
+//   }
+
+// }
+
+// export default SingleItem;
+
+
+
+
 import React, { Component } from 'react'
 import Axios from 'axios'
 import Banner from '../components/Utilities/Banner'
@@ -12,7 +46,7 @@ export default class SingleItem extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params
-    // GET BACKGROUND IMAGE
+    // GET BY ID
     Axios.get(`//osrshelper.herokuapp.com/api/runelite/${id}`)
       .then(res => this.setState({
         activeItem: res.data.item,
@@ -47,3 +81,5 @@ export default class SingleItem extends Component {
     }
   }
 }
+
+
