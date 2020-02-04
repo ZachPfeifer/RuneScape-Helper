@@ -5,15 +5,19 @@
 
 // const SingleItem = () => {
 
-//   const { activeItem, loading } = useContext(ItemContext)
-//   console.log(activeItem)
+//   const { activeItem, loading, getItem } = useContext(ItemContext)
+//   console.log(activeItem, getItem)
 //   const { name, icon_large, description } = activeItem
 //   // const data = activeItem.current
 
 
+
+
+
 //   if (loading) {
 //     return <Loading />
-//   } else {
+//   }
+//   else {
 //     return (
 //       <div className="wrapper">
 //         <Banner
