@@ -31,7 +31,7 @@ class ItemContextProvider extends Component {
   //FIXME Potentially broken (dont have access to params in here)
   getDataById = async () => {
     try {
-      const { id } = this.state.items.id //FIXME
+      const id = this.state.items[0] //FIXME
       // GET BY ID
       Axios.get(`//osrshelper.herokuapp.com/api/runelite/${id}`)
         .then(res => this.setState({
@@ -48,25 +48,24 @@ class ItemContextProvider extends Component {
 
   componentDidMount() {
     this.getAllData()
-    this.getDataById()
+    // this.getDataById()
   }
 
   //FIXME Not sure if We'll need this (may use in order to pass specific info as a value)
-  getAllItems = () => {
+  // getAllItems = () => {
 
-  }
-  getItemById = (id) => {
-    let tempItem = [this.state.items]
-    const item = tempItem.find(item => item.id === id) //FIXME need access to ID
-    return item
-  }
+  // }
+  // getItemById = (id) => {
+  //   let tempItem = [this.state.items]
+  //   const item = tempItem.find(item => item.id === id) //FIXME need access to ID also need to pass as prop
+  //   return item
+  // }
 
   render() {
     return (
       <ItemContext.Provider
         value={{
           ...this.state,
-          getItem: this.getItemById,
         }}>
         {this.props.children}
       </ItemContext.Provider>
