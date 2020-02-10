@@ -29,14 +29,14 @@ const Items = () => {
         <div className="wrapper">
           <h1 className="text-center">All Tradeable Items:
           </h1>
-          <div className="d-flex justify-content-center">
-            <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />\
+          <div className=" scrolling-wrapper">
+            <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
           </div>
           <div className="float-right mb-5">
             <ItemsMapped items={currentItems} loading={loading} />
           </div>
         </div>
-        <div className="fixed-bottom ">
+        <div className="fixed-bottom  scrolling-wrapper">
           <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
         </div>
       </div >

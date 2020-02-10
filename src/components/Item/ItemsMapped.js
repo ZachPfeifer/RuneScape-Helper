@@ -9,7 +9,7 @@ const ItemsMapped = ({ items, loading }) => {
     return (
       <ul className="list-group mb-4 list-group-horizontal row">
         {items.map(item => (
-          <li key={item.id} className="list-group-item list-group-item-warning col-md-2 col-sm-2">
+          <li key={item.id} className="list-group-item list-group-item-warning col-md-2 col-sm-1">
             <Link
               to={`/items/${item.id}`}>
               <i>{item.id}</i>

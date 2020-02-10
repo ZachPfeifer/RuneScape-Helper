@@ -10,13 +10,22 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   return (
     <nav aria-label="...">
       <ul className="pagination pagination-sm">
+        <a className="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span className="sr-only">Previous</span>
+        </a>
+        {/*NOTE Actual Page numbers */}
         {pageNumbers.map(number =>
           <li key={number} className="page-item">
             <a onClick={() => paginate(number)} className="page-link">{number}</a>
-            {/* FIXME Need to figure out page number(href) */}
           </li>
         )}
+        <a className="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span className="sr-only">Next</span>
+        </a>
       </ul>
+      {/* FIXME Need to figure out page number(href) */}
 
     </nav >
   )
