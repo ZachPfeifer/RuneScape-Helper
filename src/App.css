@@ -41,6 +41,18 @@ body {
   margin-top: 20rem;
 }
 
+a {
+  color: var(--mainBlack);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: var(--darkGrey);
+  text-decoration: none;
+  background-color: transparent;
+}
+
 /* SECTION NAVBAR */
 
 .main-header {
@@ -98,7 +110,47 @@ body {
 .nav-link a {
   text-decoration: none;
   font-size: 1.3rem;
-  color: #f2f2f2;
+  color: var(--mainWhite);
+}
+
+/* SECTION PAGINATION */
+
+.list-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.list-group-horizontal {
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.pagination ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--mainBlack);
+}
+
+.page-item li {
+  float: left;
+}
+
+.page-item li a {
+  display: block;
+  color: var(--mainWhite);
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.page-item li a:hover {
+  background-color: var(--primaryColor);
 }
 
 /* SECTION HOME */

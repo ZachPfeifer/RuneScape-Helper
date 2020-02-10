@@ -1,4 +1,4 @@
-import React, { Component, createContext, } from 'react'
+import React, { Component, createContext } from 'react'
 import Axios from 'axios'
 
 // @ts-ignore
@@ -10,7 +10,6 @@ class ItemContextProvider extends Component {
   state = {
     items: [],
     activeItem: {},
-    id: {},
     loading: true
   }
 
@@ -20,7 +19,6 @@ class ItemContextProvider extends Component {
       Axios.get('//osrshelper.herokuapp.com/api/runelite')
         .then(res => this.setState({
           items: res.data,
-          id: res.data.id,
           loading: false
         }))
     } catch (error) {
@@ -29,20 +27,21 @@ class ItemContextProvider extends Component {
   }
 
   //FIXME Potentially broken (dont have access to params in here)
-  getDataById = async () => {
+  getDataById = async (id) => {
     try {
-      const id = this.state.items[0] //FIXME
+      console.log(this.state.items);
+      // const { id } = this.state.items.id //FIXME
       // GET BY ID
       Axios.get(`//osrshelper.herokuapp.com/api/runelite/${id}`)
         .then(res => this.setState({
-          activeItem: res.data.item,
+          activeItem: res.data,
           loading: false
         }))
     } catch (error) {
       console.log(error);
-
     }
   }
+
 
 
 

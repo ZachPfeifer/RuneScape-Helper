@@ -7,9 +7,9 @@ const ItemsMapped = ({ items, loading }) => {
     return <Loading />
   } else {
     return (
-      <ul className="list-group mb-4">
+      <ul className="list-group mb-4 list-group-horizontal row">
         {items.map(item => (
-          <li key={item.id} className="list-group-item">
+          <li key={item.id} className="list-group-item list-group-item-warning col-md-2 col-sm-2">
             <Link
               to={`/items/${item.id}`}>
               <i>{item.id}</i>

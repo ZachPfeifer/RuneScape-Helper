@@ -8,11 +8,11 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   }
 
   return (
-    <nav>
-      <ul className="pagination">
+    <nav aria-label="...">
+      <ul className="pagination pagination-sm">
         {pageNumbers.map(number =>
           <li key={number} className="page-item">
-            <a onClick={() => paginate(number)} href="#" className="page-link">{number}</a>
+            <a onClick={() => paginate(number)} className="page-link">{number}</a>
             {/* FIXME Need to figure out page number(href) */}
           </li>
         )}

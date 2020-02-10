@@ -1,18 +1,15 @@
-// import React, { useContext } from 'react'
+// import React, { useContext, useEffect } from 'react'
 // import { ItemContext } from "../context/ItemContext";
 // import Banner from '../components/Utilities/Banner'
 // import Loading from '../components/Utilities/Loading'
+// import axios from "axios";
 
 // const SingleItem = () => {
 
-//   const { activeItem, loading, getItem } = useContext(ItemContext)
-//   console.log(activeItem, getItem)
+//   const { activeItem, loading } = useContext(ItemContext)
+//   console.log(activeItem)
 //   const { name, icon_large, description } = activeItem
 //   // const data = activeItem.current
-
-
-
-
 
 //   if (loading) {
 //     return <Loading />

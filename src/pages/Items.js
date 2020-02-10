@@ -10,7 +10,7 @@ const Items = () => {
   //useState to Set Pages
   const [currentPage, setcurrentPage] = useState(1)
   //useState to Set Item number per Page
-  const [itemsPerPage] = useState(5)
+  const [itemsPerPage] = useState(102)
 
   //Get Current Item
   const indexOFLastItem = currentPage * itemsPerPage
@@ -25,9 +25,20 @@ const Items = () => {
     return <Loading />
   } else {
     return (
-      <div className="wrapper container-fluid">
-        <ItemsMapped items={currentItems} loading={loading} />
-        <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
+      <div className="container">
+        <div className="wrapper">
+          <h1 className="text-center">All Tradeable Items:
+          </h1>
+          <div className="d-flex justify-content-center">
+            <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />\
+          </div>
+          <div className="float-right mb-5">
+            <ItemsMapped items={currentItems} loading={loading} />
+          </div>
+        </div>
+        <div className="fixed-bottom ">
+          <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
+        </div>
       </div >
     );
   }
