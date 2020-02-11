@@ -7,10 +7,12 @@ import Pagination from "../components/Utilities/Pagination";
 const Items = () => {
   //Uses Context to grab items and loading from State
   const { items, loading } = useContext(ItemContext)
+  // console.log("Sorted Items from Context", sortedItems);
+
   //useState to Set Pages
   const [currentPage, setcurrentPage] = useState(1)
   //useState to Set Item number per Page
-  const [itemsPerPage] = useState(102)
+  const [itemsPerPage] = useState(5)
 
   //Get Current Item
   const indexOFLastItem = currentPage * itemsPerPage
@@ -27,17 +29,24 @@ const Items = () => {
     return (
       <div className="container">
         <div className="wrapper">
-          <h1 className="text-center">All Tradeable Items:
-          </h1>
+          <div className="row  mx-auto">
+            <div className="col-12">
+              <h1 className="text-center">All Tradeable Items:</h1>
+            </div>
+          </div>
+          <div className="row  mx-auto">
+            <div className="col-12">
+            </div>
+          </div>
           <div className=" scrolling-wrapper">
             <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
           </div>
-          <div className="float-right mb-5">
+          <div className="mb-5">
             <ItemsMapped items={currentItems} loading={loading} />
+            <div className="scrolling-wrapper">
+              <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
+            </div>
           </div>
-        </div>
-        <div className="fixed-bottom  scrolling-wrapper">
-          <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
         </div>
       </div >
     );
