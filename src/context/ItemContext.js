@@ -9,8 +9,10 @@ class ItemContextProvider extends Component {
 
   state = {
     items: [],
-    activeItem: {},
-    loading: true
+    // activeItem: {},
+    loading: true,
+    searchItem: [],
+
   }
 
 
@@ -27,20 +29,20 @@ class ItemContextProvider extends Component {
   }
 
   //FIXME Potentially broken (dont have access to params in here)
-  getDataById = async (id) => {
-    try {
-      console.log(this.state.items);
-      // const { id } = this.state.items.id //FIXME
-      // GET BY ID
-      Axios.get(`//osrshelper.herokuapp.com/api/runelite/${id}`)
-        .then(res => this.setState({
-          activeItem: res.data,
-          loading: false
-        }))
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // getDataById = async (id) => {
+  //   try {
+  //     console.log(this.state.items);
+  //     // const { id } = this.state.items.id //FIXME
+  //     // GET BY ID
+  //     Axios.get(`//osrshelper.herokuapp.com/api/runelite/${id}`)
+  //       .then(res => this.setState({
+  //         activeItem: res.data,
+  //         loading: false
+  //       }))
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
 
 
@@ -60,11 +62,17 @@ class ItemContextProvider extends Component {
   //   return item
   // }
 
+  handleInput = (e) => {
+    e.preventDefault();
+    this.setState({ searchItem: e.target.value })
+  }
+
   render() {
     return (
       <ItemContext.Provider
         value={{
           ...this.state,
+          handleInput: this.handleInput
         }}>
         {this.props.children}
       </ItemContext.Provider>

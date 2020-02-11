@@ -11,7 +11,7 @@ import HiScores from './pages/HiScores';
 import SingleItem from './pages/SingleItem';
 import ItemContextProvider from './context/ItemContext';
 import './App.css'
-// import ItemsMapped from './components/Item/ItemsMapped';
+// import ItemList from './components/Item/ItemList';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 

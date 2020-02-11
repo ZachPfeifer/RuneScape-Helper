@@ -1,26 +1,33 @@
 import React, { useContext, useState } from 'react'
 import { ItemContext } from "../context/ItemContext";
 import Loading from '../components/Utilities/Loading'
-import ItemsMapped from "../components/Item/ItemsMapped";
+import ItemList from "../components/Item/ItemList";
 import Pagination from "../components/Utilities/Pagination";
+import SearchBox from "../components/Utilities/SearchBox";
 
 const Items = () => {
-  //Uses Context to grab items and loading from State
-  const { items, loading } = useContext(ItemContext)
-  // console.log("Sorted Items from Context", sortedItems);
+  //SECTION Uses Context to grab items and loading from State
+  const { items, loading, searchItem, handleInput } = useContext(ItemContext)
+  //console.log("Sorted Items from Context", sortedItems);
 
-  //useState to Set Pages
+  //SECTION useState to Set Pages
   const [currentPage, setcurrentPage] = useState(1)
-  //useState to Set Item number per Page
-  const [itemsPerPage] = useState(5)
+  //SECTION useState to Set Item number per Page
+  const [itemsPerPage] = useState(26)
 
-  //Get Current Item
+  //SECTION Get Current Item
   const indexOFLastItem = currentPage * itemsPerPage
   const indexOfFistPost = indexOFLastItem - itemsPerPage
   const currentItems = items.slice(indexOfFistPost, indexOFLastItem)
 
-  //Change Page
+  //SECTION Change Page
   const paginate = (pageNumber) => setcurrentPage(pageNumber)
+
+
+  //SECTION Search Items By Name. //Should be items not surrent Items
+  let filterItems = currentItems.filter((item) => {
+    return item.name.toLowerCase().includes(searchItem)
+  })
 
 
   if (loading) {
@@ -29,20 +36,25 @@ const Items = () => {
     return (
       <div className="container">
         <div className="wrapper">
-          <div className="row  mx-auto">
+          <div className="row mx-auto text-center">
             <div className="col-12">
-              <h1 className="text-center">All Tradeable Items:</h1>
+              <h1 className="">All Tradeable Items: </h1>
+              <br />
+              <SearchBox handleInput={handleInput} />
             </div>
           </div>
+          <br />
           <div className="row  mx-auto">
             <div className="col-12">
             </div>
           </div>
-          <div className=" scrolling-wrapper">
+          <div className="scrolling-wrapper">
             <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
           </div>
           <div className="mb-5">
-            <ItemsMapped items={currentItems} loading={loading} />
+            {/* FIXME Pagination works when passing current page but filterItems wont work
+            items={currentItems} */}
+            <ItemList filterItems={filterItems} />
             <div className="scrolling-wrapper">
               <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
             </div>
@@ -51,36 +63,6 @@ const Items = () => {
       </div >
     );
   }
-
-
-
-
-
-  //OLD CODE
-  // if (loading) {
-  //   return <Loading />
-  // } else {
-  //   return (
-  //     <div className="wrapper container-fluid">
-  //       <ul className="list-group mb-4">
-  //         {items.map(item => {
-  //           if (item.tradeable === "true") {
-  //             return (
-  //               <li key={item.id} className="list-group-item">
-  //                 <Link
-  //                   to={`/items/${item.id}`}>
-  //                   <i>{item.id}</i>
-  //                   <h3>{item.name}</h3>
-  //                 </Link>
-  //               </li>
-  //             )
-  //           }
-  //         })
-  //         }
-  //       </ul>
-  //     </div >
-  //   );
-  // }
 }
 
 export default Items;

@@ -10,7 +10,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   return (
     <nav aria-label="...">
       <ul className="pagination pagination-sm">
-        <a className="page-link" href="#" aria-label="Previous">
+        <a className="page-link" href="javascript:void(0)" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
           <span className="sr-only">Previous</span>
         </a>
@@ -20,12 +20,12 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
             <a onClick={() => paginate(number)} className="page-link">{number}</a>
           </li>
         )}
-        <a className="page-link" href="#" aria-label="Next">
+        <a className="page-link" href="javascript:void(0)" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span className="sr-only">Next</span>
         </a>
       </ul>
-      {/* FIXME Need to figure out page number(href) */}
+      {/* FIXME Need to figure out page number(href). Can use # with warning. using javascript:void(0) with red warning */}
 
     </nav >
   )
