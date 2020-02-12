@@ -1,5 +1,6 @@
 import React, { Component, createContext } from 'react'
 import Axios from 'axios'
+import Error from '../pages/Error'
 
 // @ts-ignore
 export const ItemContext = createContext()
@@ -25,6 +26,7 @@ class ItemContextProvider extends Component {
         }))
     } catch (error) {
       console.log(error);
+      return <Error />
     }
   }
 

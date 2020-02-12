@@ -24,9 +24,9 @@ const Items = () => {
   const paginate = (pageNumber) => setcurrentPage(pageNumber)
 
 
-  //SECTION Search Items By Name. //Should be items not surrent Items
-  let filterItems = currentItems.filter((item) => {
-    return item.name.toLowerCase().includes(searchItem)
+  //SECTION Search Items By Name. //Should be items not currentItems
+  let filterItems = items.filter((item) => {
+    return item.name.toLowerCase().includes(searchItem) || item.id.includes(searchItem)
   })
 
 
@@ -40,7 +40,8 @@ const Items = () => {
             <div className="col-12">
               <h1 className="">All Tradeable Items: </h1>
               <br />
-              <SearchBox handleInput={handleInput} />
+              <SearchBox
+                handleInput={handleInput} />
             </div>
           </div>
           <br />
@@ -49,7 +50,10 @@ const Items = () => {
             </div>
           </div>
           <div className="scrolling-wrapper">
-            <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
+            <Pagination
+              itemsPerPage={itemsPerPage}
+              totalItems={items.length} paginate={paginate}
+            />
           </div>
           <div className="mb-5">
             {/* FIXME Pagination works when passing current page but filterItems wont work
