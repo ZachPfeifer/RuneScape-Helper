@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SearchBox(props) {
   return (
-    <form >
+    <form onSubmit={props.handleInput}>
       <label htmlFor="search-input">
         <span className="mr-1">
           Search Bar:

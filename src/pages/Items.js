@@ -13,7 +13,7 @@ const Items = () => {
   //SECTION useState to Set Pages
   const [currentPage, setcurrentPage] = useState(1)
   //SECTION useState to Set Item number per Page
-  const [itemsPerPage] = useState(26)
+  const [itemsPerPage] = useState(120)
 
   //SECTION Get Current Item
   const indexOFLastItem = currentPage * itemsPerPage
@@ -64,6 +64,7 @@ const Items = () => {
     );
   }
 }
+
 
 export default Items;
 

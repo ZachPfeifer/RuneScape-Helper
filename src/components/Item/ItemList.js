@@ -5,24 +5,29 @@ import { Link } from 'react-router-dom'
 
 
 export default function ItemList(props) {
+
+  // { loading ? <Loading /> : <ItemList filterItems={filterItems} /> }
+
   let items = props.filterItems.map((item) => {
-    return <Link
-      to={`/items/${item.id}`}
-      key={item.id}>
-      <Item
-        key={item.id}
-        id={item.id}
-        name={item.name}
-        stackable={item.stackable}
-        noted={item.noted}
-      />
-    </Link>
+    if (item.tradeable === "true" && item.name != "null") {
+      return <Link
+        to={`/items/${item.id}`}
+        key={item.id}>
+        <Item
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          stackable={item.stackable}
+          noted={item.noted}
+        />
+      </Link>
+    }
   })
 
 
   return (
     <div className="mx-auto p-5">
-      <ul className="list-group list-group-horizontal row m-2">
+      <ul className="list-group list-group-horizontal row m-2 d-flex justify-content-between">
         {items}
       </ul>
     </div>
