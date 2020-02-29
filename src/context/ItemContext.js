@@ -13,7 +13,6 @@ class ItemContextProvider extends Component {
     // activeItem: {},
     loading: true,
     searchItem: [],
-
   }
 
 
@@ -63,7 +62,11 @@ class ItemContextProvider extends Component {
   //   const item = tempItem.find(item => item.id === id) //FIXME need access to ID also need to pass as prop
   //   return item
   // }
+  //SECTION Search Filter 
 
+
+
+  //SECTION Handle for search Input
   handleInput = (e) => {
     e.preventDefault();
     this.setState({ searchItem: e.target.value })
@@ -74,7 +77,7 @@ class ItemContextProvider extends Component {
       <ItemContext.Provider
         value={{
           ...this.state,
-          handleInput: this.handleInput
+          handleInput: this.handleInput,
         }}>
         {this.props.children}
       </ItemContext.Provider>

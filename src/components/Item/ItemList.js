@@ -9,7 +9,7 @@ export default function ItemList(props) {
   // { loading ? <Loading /> : <ItemList filterItems={filterItems} /> }
 
   let items = props.filterItems.map((item) => {
-    if (item.tradeable === "true" && item.name != "null") {
+    if (item.tradeable === "true" && item.name !== "null") {
       return <Link
         to={`/items/${item.id}`}
         key={item.id}>

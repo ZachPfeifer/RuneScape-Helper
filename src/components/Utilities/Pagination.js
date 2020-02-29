@@ -8,26 +8,26 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   }
 
   return (
-    <nav aria-label="...">
+    <nav aria-label="..." className="d-flex justify-content-center">
       <ul className="pagination pagination-sm">
-        <a className="page-link" href="javascript:void(0)" aria-label="Previous">
+        <button className="page-link" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
           <span className="sr-only">Previous</span>
-        </a>
+        </button>
         {/*NOTE Actual Page numbers */}
         {pageNumbers.map(number =>
           <li key={number} className="page-item">
-            <a onClick={() => paginate(number)} className="page-link">{number}</a>
+            <button onClick={() => paginate(number)} className="page-link">{number}</button>
           </li>
         )}
-        <a className="page-link" href="javascript:void(0)" aria-label="Next">
+        <button className="page-link" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span className="sr-only">Next</span>
-        </a>
+        </button>
       </ul>
-      {/* FIXME Need to figure out page number(href). Can use # with warning. using javascript:void(0) with red warning */}
 
     </nav >
   )
 }
+// {/* FIXME Need to figure out page number(href). Can use # with warning. using javascript:void(0) with red warning */}
 export default Pagination

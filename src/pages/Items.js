@@ -8,12 +8,11 @@ import SearchBox from "../components/Utilities/SearchBox";
 const Items = () => {
   //SECTION Uses Context to grab items and loading from State
   const { items, loading, searchItem, handleInput } = useContext(ItemContext)
-  //console.log("Sorted Items from Context", sortedItems);
 
   //SECTION useState to Set Pages
   const [currentPage, setcurrentPage] = useState(1)
   //SECTION useState to Set Item number per Page
-  const [itemsPerPage] = useState(120)
+  const [itemsPerPage] = useState(1000)
 
   //SECTION Get Current Item
   const indexOFLastItem = currentPage * itemsPerPage
@@ -25,7 +24,7 @@ const Items = () => {
 
 
   //SECTION Search Items By Name. //Should be items not currentItems
-  let filterItems = items.filter((item) => {
+  let filterItems = currentItems.filter((item) => {
     return item.name.toLowerCase().includes(searchItem) || item.id.includes(searchItem)
   })
 
@@ -45,10 +44,6 @@ const Items = () => {
             </div>
           </div>
           <br />
-          <div className="row  mx-auto">
-            <div className="col-12">
-            </div>
-          </div>
           <div className="scrolling-wrapper">
             <Pagination
               itemsPerPage={itemsPerPage}
@@ -58,9 +53,14 @@ const Items = () => {
           <div className="mb-5">
             {/* FIXME Pagination works when passing current page but filterItems wont work
             items={currentItems} */}
-            <ItemList filterItems={filterItems} />
+            <ItemList
+              filterItems={filterItems} />
             <div className="scrolling-wrapper">
-              <Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate} />
+              <Pagination
+                itemsPerPage={itemsPerPage}
+                totalItems={items.length}
+                paginate={paginate}
+              />
             </div>
           </div>
         </div>
